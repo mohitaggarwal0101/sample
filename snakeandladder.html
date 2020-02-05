@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            snakesAndLadder
+        </title>
+
+        <style>
+
+            .main{
+                position: relative;
+                max-width:500px;
+                margin: auto;
+            }
+
+            .head1{
+                width: 510px;
+                height: 510px;
+             /*   border: 2px solid black;  */
+             /*   position: relative;       */
+                position: absolute;
+                top: 7px;
+
+            }
+
+            .head2 img{
+                width: 500px;
+                height: 500px;
+                position: absolute;    
+                top: 10px;
+                left: 1px;
+                z-index : -1;
+            }
+
+            div.num{
+                height:10%;
+                width: 100%;
+                
+            }
+
+            div.num div{
+                width: 50px;
+                height: 100%; 
+           /*     border-left: 0.1px solid black;    */
+                float:left;
+                
+                color: blanchedalmond ;
+            }
+
+            div.footer{
+                margin-top: 10px;;
+                width: 500px;
+                height: 100px;
+             /*   background-color:red;  */
+                border: 1.09px solid black;
+                text-align: center;
+                font-size: 30px;
+                position: absolute;
+                top:500px;
+            }
+
+            .footer div{
+                float: left;
+
+                height: 100%;
+                width: 32.9%;
+                border: 1.09px solid black;  
+
+            }
+            
+        /*    #pos100{
+                background-color: darkgreen;
+            }   */
+
+            #player1{
+                width: 10px;
+                height:10px;
+                border-radius: 5px;
+                background-color: darkorange;
+                padding: 5px;  
+                margin-left: 6px;
+            }
+
+            #player2{
+                width: 10px;
+                height:10px;
+             
+                border-radius: 5px;
+                background-color:deepskyblue;
+                padding: 5px;
+                margin-left: 6px;
+
+            }
+
+            #p1{
+                margin: auto;
+            }
+
+        /*    .main{
+                margin-left:20px;
+        }   */
+            
+        </style>
+    </head>
+
+    <body>
+        <div class="main">
+            <div class="head1">
+                <div class="num" id="div1" ></div>
+                <div class="num" id="div2" ></div>
+                <div class="num" id="div3" ></div>
+                <div class="num" id="div4" ></div>
+                <div class="num" id="div5" ></div>
+                <div class="num" id="div6" ></div>
+                <div class="num" id="div7" ></div>
+                <div class="num" id="div8" ></div>
+                <div class="num" id="div9" ></div>
+                <div class="num" id="div10"></div>
+            </div>
+
+            <div class="head2">
+                <img src="/home/com115/Downloads/lad.jpg" alt="snakeAndLadder">              
+            </div>
+
+            <div class="footer">
+
+                <div class="f1" id="p1" style="background-color: darkorange;">
+                    <p >player 1</p>  <!--style="color:darkorange"-->
+
+                </div>
+
+            <div class="f2" id="dice" onclick="turn()" style="background-color:cornflowerblue" >
+                    <div id="player1"></div>
+                    <div id="player2"></div>   
+                    
+                    <p id="temp_para">start</p>
+                    <img src="" alt="" id="temp_dice">
+                    
+                    
+                </div>
+
+                <div class="f3" id="p2" style="background-color: red;">
+                    <p >player 2</p>  <!--style="color: deepskyblue"-->
+                </div>
+
+            </div>
+            
+            
+            
+
+        </div>
+
+        <script>
+           ( function fun1()
+            {
+                for(var i = 100 ; i >= 91 ; i--)
+                {
+                    var divv = document.createElement("div");
+                   // var node = document.createTextNode(i);
+                   // divv.appendChild(node);
+                    divv.setAttribute("id","pos" + i);
+                    var element = document.getElementById("div1");
+                    element.appendChild(divv);
+               }
+
+               for(var i = 81 ; i <= 90 ; i++)
+                {
+                    var divv = document.createElement("div");
+                   // var node = document.createTextNode(i);
+                   // divv.appendChild(node);
+                    divv.setAttribute("id","pos" + i);
+                    var element = document.getElementById("div2");
+                    element.appendChild(divv);
+               }
+
+               for(let i = 80 ; i >= 71 ; i--)
+                {
+                    var divv = document.createElement("div");
+                 //   var node = document.createTextNode(i);
+                 //   divv.appendChild(node);
+                    divv.setAttribute("id","pos" + i);
+                    var element = document.getElementById("div3");
+                    element.appendChild(divv);
+               }
+
+               for(let i = 61 ; i <= 70 ; i++)
+                {
+                    var divv = document.createElement("div");
+                //    var node = document.createTextNode(i);
+                //    divv.appendChild(node);
+                    divv.setAttribute("id","pos" + i);
+                    var element = document.getElementById("div4");
+                    element.appendChild(divv);
+               }
+
+               for(let i = 60 ; i >= 51 ; i--)
+                {
+                    var divv = document.createElement("div");
+                 //   var node = document.createTextNode(i);
+                 //   divv.appendChild(node);
+                    divv.setAttribute("id","pos" + i);
+                    var element = document.getElementById("div5");
+                    element.appendChild(divv);
+               }
+
+               for(let i = 41 ; i <= 50 ; i++)
+                {
+                    var divv = document.createElement("div");
+                //    var node = document.createTextNode(i);
+                 //   divv.appendChild(node);
+                    divv.setAttribute("id","pos" + i);
+                    var element = document.getElementById("div6");
+                    element.appendChild(divv);
+               }
+
+               for(let i = 40 ; i >= 31 ; i--)
+                {
+                    var divv = document.createElement("div");
+                  //  var node = document.createTextNode(i);
+                 //   divv.appendChild(node);
+                    divv.setAttribute("id","pos" + i);
+                    var element = document.getElementById("div7");
+                    element.appendChild(divv);
+               }
+
+               for(let i = 21 ; i <= 30 ; i++)
+                {
+                    var divv = document.createElement("div");
+                 //   var node = document.createTextNode(i);
+                 //   divv.appendChild(node);
+                    divv.setAttribute("id","pos" + i);
+                    var element = document.getElementById("div8");
+                    element.appendChild(divv);
+               }
+
+               for(let i = 20 ; i >= 11 ; i--)
+                {
+                    var divv = document.createElement("div");
+                //    var node = document.createTextNode(i);
+                 //   divv.appendChild(node);
+                    divv.setAttribute("id","pos" + i);
+                    var element = document.getElementById("div9");
+                    element.appendChild(divv);
+               }
+
+               for(let i = 1 ; i <= 10 ; i++)
+                {
+                    var divv = document.createElement("div");
+                 //   var node = document.createTextNode(i);
+                 //   divv.appendChild(node);
+                    divv.setAttribute("id","pos" + i);
+                    var element = document.getElementById("div10");
+                    element.appendChild(divv);
+               }
+
+            })()
+            
+            var p1 = true;
+            var position1 = 1;
+            var position2 = 1;
+
+            function turn(){
+
+                var i = Math.floor(Math.random() * 6) + 1;
+              //  document.getElementById("dice").innerHTML = (i);
+                
+                var parent = document.getElementById("dice");
+                var temp = document.getElementById("temp_dice");
+                
+
+                var image_dice = document.createElement("img");
+                image_dice.setAttribute("src","/home/com115/Documents/rsz_" + i + ".png");
+                image_dice.setAttribute("width","70px");
+                image_dice.setAttribute("height","70px");
+              //  image_dice.setAttribute("margin-top","30px");
+                image_dice.setAttribute("alt","dice");
+                image_dice.setAttribute("id","temp_dice");
+                
+                parent.replaceChild(image_dice,temp);
+                
+                document.getElementById("temp_para").style.display = "none";   
+
+
+              //  document.getElementById("dice").innerHTML = (image_dice);
+            
+                if(p1 === true)
+                {
+                    p1 = false;
+                    
+
+                    if((position1 + i) > 100)
+                    {
+                        return ;
+                    }
+                    else if((position1 + i) === 100)
+                    {
+                        document.getElementById("dice").innerHTML = "player 1 won the game";
+                 //       document.getElementById("btn").style.display = "none";
+
+                        var temp1 = document.getElementById("pos" + position1);
+                        var temp2 = document.getElementById("player1");
+
+                        temp1.appendChild(temp2);
+                    }
+
+                    position1 = position1 + i;
+
+                    if(position1 === 5)
+                    {
+                        position1 = 9 ;
+                    }
+                    else if(position1 === 15)
+                    {
+                        position1 = 25;
+                    }
+                    else if(position1 === 18)
+                    {
+                        position1 = 80;
+                    }
+                    else if(position1 === 44)
+                    {
+                        position1 = 86;
+                    }
+                    else if(position1 === 47)
+                    {
+                        position1 = 68;
+                    }
+                    else if(position1 === 81)
+                    {
+                        position1 = 98;
+                    }
+                    else if(position1 === 71)
+                    {
+                        position1 = 94;
+                    }
+                    else if(position1 === 6)
+                    {
+                        position1 = 3;
+                    }
+                    else if(position1 === 42)
+                    {
+                        position1 = 19;
+                    }
+                    else if(position1 === 13)
+                    {
+                        position1 = 51;
+                    }
+                    else if(position1 === 66)
+                    {
+                        position1 = 97;
+                    }
+                    else if(position1 === 87)
+                    {
+                        position1 = 90;
+                    }
+                    else if(position1 === 83)
+                    {
+                        position1 = 62;
+                    }
+                    else if(position1 === 63)
+                    {
+                        position1 = 78;
+                    }
+
+
+                    var temp1 = document.getElementById("pos" + position1);
+                    var temp2 = document.getElementById("player1");
+
+                    document.getElementById("p1").style.backgroundColor = "red";
+                    document.getElementById("p2").style.backgroundColor = "deepskyblue";
+                    document.getElementById("p2").style.fontSize = "30px";
+                    document.getElementById("p1").style.fontSize = "20px";
+
+                    temp1.appendChild(temp2);
+                }
+                else
+                {
+                    p1 = true;
+                    
+
+                    if((position2 + i) > 100)
+                    {
+                        return ;
+                    }
+                    else if((position2 + i) === 100)
+                    {
+                        document.getElementById("dice").innerHTML = "player 2 won the game";
+                 //       document.getElementById("btn").style.display = "none";
+
+                        var temp1 = document.getElementById("pos" + position2);
+                        var temp2 = document.getElementById("player2");
+
+                        temp1.appendChild(temp2);
+                    }
+
+                    position2 = position2 + i;
+
+                    if(position2 === 5)
+                    {
+                        position2 = 9 ;
+                    }
+                    else if(position2 === 15)
+                    {
+                        position2 = 25;
+                    }
+                    else if(position1 === 18)
+                    {
+                        position1 = 80;
+                    }
+                    else if(position2 === 44)
+                    {
+                        position2 = 86;
+                    }
+                    else if(position2 === 47)
+                    {
+                        position2 = 68;
+                    }
+                    else if(position2 === 63)
+                    {
+                        position2 = 78;
+                    }
+                    else if(position2 === 81)
+                    {
+                        position1 = 98;
+                    }
+                    else if(position2 === 71)
+                    {
+                        position2 = 94;
+                    }
+                    else if(position2 === 6)
+                    {
+                        position2 = 3;
+                    }
+                    else if(position2 === 42)
+                    {
+                        position2 = 19;
+                    }
+                    else if(position2 === 13)
+                    {
+                        position2 = 51;
+                    }
+                    else if(position2 === 66)
+                    {
+                        position2 = 97;
+                    }
+                    else if(position2 === 87)
+                    {
+                        position2 = 90;
+                    }
+                    else if(position2 === 83)
+                    {
+                        position2 = 62;
+                    }
+
+                    var temp1 = document.getElementById("pos" + position2);
+                    var temp2 = document.getElementById("player2");
+
+                    document.getElementById("p2").style.backgroundColor = "red";
+                    document.getElementById("p1").style.backgroundColor = "darkorange";
+                    document.getElementById("p1").style.fontSize = "30px";
+                    document.getElementById("p2").style.fontSize = "20px";
+
+                    temp1.appendChild(temp2);
+                }
+            
+            }
+          var temp1 = document.getElementById("pos1");
+          var temp2 = document.getElementById("player1");
+          var temp3 = document.getElementById("player2");
+          
+          temp1.appendChild(temp2);
+          temp1.appendChild(temp3);
+            
+         </script>
+
+
+    </body>
+</html>
